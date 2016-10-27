@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~this fixed width container surrounds the other divs~~ */
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	background-color: #ADB96E;
+}
+
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 780px;
+	float: left;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ The footer ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #CCC49F;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="header"><!-- end .header --><a href="#"></a><img src="../Images/pain.jpg" width="194" height="177" /><a href="#"><img src="../Images/Pain2.jpg" alt="" width="719" height="168" /></a></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><a href="website_1.dwt">Akatsuki</a></li>
+      <li><a href="Untitled-1.html">Itachi</a></li>
+      <li><a href="Obito.html">Obito</a></li>
+      <li><a href="Sasori.html">Sasori</a><a href="#"></a></li>
+    </ul>
+    <p><img src="../Images/ssss.png" width="200" height="1080" /></p>
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <h1>Nagato:</h1>
+    <p><strong>Nagato</strong> (<span lang="ja" xml:lang="ja">長門</span>, <em>Nagato</em>) was a Shinobi of Amagekure and descendant of the Uzumaki Clan. Forming Akutsuki alongside his friends (and fellow war orphans) Yahiko and Konan, Nagato dreamed of bringing peace to the violent shinobi world. However, following Yahiko's death, Nagato adopted the alias of <strong>Pain</strong> (<span lang="ja" xml:lang="ja">ペイン</span>, <em>Pein</em>) and, along with Konan, began leading a new Akatsuki; one that would force the world into peace using any means necessary.</p>
+    <p>&nbsp;</p>
+    <h2>Appearance: </h2>
+    <p>Nagato had pale white skin with straight red hair, a sign of his Uzumaki heritage. When he was very young, his eyes were covered by his hair, preventing his Rinnegan from being visible. When he started training to be a ninja he parted his hair so that only his right eye was covered. After he performs Samsara his hair turns white as a side-effect of the jutsu, and it remains white after he is reincarnated. Linking with the Demonic staute of outer path left a number of black recievers embedded in his back and caused his body to become very emaciated, limiting his mobility. For this reason he spent most of his adult life in a mechanical walker from which he controlled the Six Path of pain. He likewise did not personally wear any of the typical Akatsuki clothing, having his Paths wear it instead. His hair became red again and regained his healthy form when he absorbed some of the Eight tails.</p>
+    <h3>Abilites:</h3>
+    <p>Nagato's position as the leader of Akatsuki was well-deserved, being its strongest member and, as Pain, being called unbeatable at different points by Konan ,Fukasaku<a href="http://naruto.wikia.com/wiki/Fukasaku" title="Fukasaku"></a>,Tobi, and Zetsu. Jiraya<a href="http://naruto.wikia.com/wiki/Jiraiya" title="Jiraiya"></a> was frightened by news that Pain killed Hanzo by himself, as not even the combined Sanin could defeat Hanzō.Kabuto also regarded Nagato (with hindered mobility) as his second strongest reincarnated shinobi, behind only Madara uchiha. Indeed, it took the combined efforts of Itachi, Killer b (a perfect jinchuriki), and Naruto (a nearly-perfect jinchūriki) to successfully defeat Nagato.</p>
+    <h4>&nbsp;</h4>
+  <!-- end .content --></div>
+  <div class="footer">
+    <p>This .footer contains the declaration position:relative; to give Internet Explorer 6 hasLayout for the .footer and cause it to clear correctly. If you're not required to support IE6, you may remove it.</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
