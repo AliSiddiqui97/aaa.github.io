@@ -1,0 +1,32 @@
+.NavBar{
+    background-color: blue;
+}
+.whiteclr{
+    color: white!important;
+}
+a,span{
+    color: white;
+}
+.aboutus{
+    padding-top: 25px;
+    background-color: #f7f3e9;
+}
+.btn-dark{
+
+    margin-top: 4px;
+    height: calc(1.5em + .75rem + 2px);
+  
+}
+.news{
+    display: inline!important;
+    border-radius: 0;
+}
+.outline:hover{
+    border: 0 0 3px blue;
+}
+.icon2{
+    color: blue!important;
+}
+.pad{
+    padding-bottom: 10px;
+}
